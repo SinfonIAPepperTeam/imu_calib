@@ -49,10 +49,10 @@ ament_target_dependencies(imu_calib_lib ${imu_calib_deps})
 
 # === Build executables ===
 
-# apply_calib_node
-add_executable(apply_calib_node src/apply_calib_node.cpp)
-target_link_libraries(apply_calib_node imu_calib_lib)
-ament_target_dependencies(apply_calib_node ${imu_calib_deps})
+# apply_calib
+add_executable(apply_calib src/apply_calib_node.cpp)
+target_link_libraries(apply_calib imu_calib_lib)
+ament_target_dependencies(apply_calib ${imu_calib_deps})
 
 # do_calib_node
 add_executable(do_calib_node src/do_calib_node.cpp)
@@ -64,10 +64,8 @@ ament_target_dependencies(do_calib_node ${imu_calib_deps})
 # === Install binaries ===
 install(TARGETS
   imu_calib_lib
-  apply_calib_node
+  apply_calib
   do_calib_node
-
-
   DESTINATION lib/${PROJECT_NAME}
 )
 
